@@ -55,22 +55,29 @@ class URL_Shortner:
             return result_str
         
 
-
+def get_ip_address(request):
+    """ use requestobject to fetch client machine's IP Address """
+    x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+    if x_forwarded_for:
+        ip = x_forwarded_for.split(',')[-1].strip()
+    else:
+        ip = request.META.get('REMOTE_ADDR')    ### Real IP address of client Machine
+    return ip
 
 
 def home(request):
+    ip_address = get_ip_address(request)
     if request.method == 'POST':
         input = URL_Form(request.POST)
         if input.is_valid():
-            name = input.cleaned_data['name']
-            if len(name) < 4:
-                raise forms.ValidationError("Name is too Short")
+            name = input.cleaned_data['name']           
             email = input.cleaned_data['email']
             url = input.cleaned_data['input_url']
             shorten_urls = URL_Shortner().shorten_url(url)
             set_UserData = User(Name = name, Email = email)
             set_UserData.save()
-            set_data = Input_URL(UserID= set_UserData ,input_url = url , shorten_url = shorten_urls, CreationDate = timezone.now(), ExpirationDate = timezone.now() + timezone.timedelta(days= 730) )
+            
+            set_data = Input_URL(UserID= set_UserData, ip_addresss= ip_address ,input_url = url , shorten_url = shorten_urls, CreationDate = timezone.now(), ExpirationDate = timezone.now() + timezone.timedelta(days= 730) )
             set_data.save()
             
 

@@ -12,6 +12,7 @@ class Input_URL(models.Model):
     # UserID = models.IntegerField(primary_key=True, unique=True, null=False)
     
     UserID = models.ForeignKey('User', on_delete=CASCADE, related_name="UserID")
+    ip_addresss = models.GenericIPAddressField()
     input_url = models.URLField(blank=False)
     shorten_url = models.URLField(blank=False)
     CreationDate = models.DateField()
@@ -29,3 +30,7 @@ class User(models.Model):
     Name = models.CharField(max_length=20, blank=False, null=False)
     Email = models.EmailField(blank=False, null=False)
     
+
+
+
+

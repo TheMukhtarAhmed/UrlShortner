@@ -6,7 +6,7 @@ from .models import Input_URL,User
 
 @admin.register(Input_URL)
 class Admin_Url(admin.ModelAdmin):
-    list_display = ['UserID','input_url', 'shorten_url', 'CreationDate', 'ExpirationDate']
+    list_display = ['UserID', 'ip_addresss','input_url', 'shorten_url', 'CreationDate', 'ExpirationDate']
 
 
 @admin.register(User)

@@ -27,9 +27,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'ibfe(xf91w3k&q3c!o84r51!o((lxj=5@=#)y_7fvd7-zke3s1'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['https://urlsh0rtner.herokuapp.com/', '127.0.0.1']
+# ALLOWED_HOSTS = []
 
 
 
@@ -96,6 +97,13 @@ DATABASES = {
         'PASSWORD': '87fa242fc0fcb53dcfd98fd5bdab2197bb6ec358bc32fc0d21add1f925bbd6d2',
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 
 
