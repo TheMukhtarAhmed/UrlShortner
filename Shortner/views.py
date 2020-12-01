@@ -29,7 +29,7 @@ class URL_Shortner:
         shorten_url = self.encode(length)
         
         
-        return "localhost:8000/" + str(shorten_url)
+        return "https://urlsh0rtner.herokuapp.com/" + str(shorten_url)
 
     def encode(self, length):
         # characters = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/"
