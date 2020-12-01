@@ -55,23 +55,24 @@ class URL_Shortner:
             return result_str
         
 
-# def get_ip_address(request):
-#     """ use requestobject to fetch client machine's IP Address """
-#     x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
-#     if x_forwarded_for:
-#         ip = x_forwarded_for.split(',')[-1].strip()
-#     else:
-#         ip = request.META.get('REMOTE_ADDR')    ### Real IP address of client Machine
-#     return ip
-
 def get_ip_address(request):
-    x_forwarded_for = request.environ.get('HTTP_X_FORWARDED_FOR')
+    """ use requestobject to fetch client machine's IP Address """
+    x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
     if x_forwarded_for:
-        ipps = x_forwarded_for.split(',')
-        ips = ipps[len(ipps) - 1]
+        ip = x_forwarded_for.split(',')[-1].strip()
+        ip = ip[len(ip) - 1]
     else:
-        ips = request.META.get('REMOTE_ADDR')
-    return ips
+        ip = request.META.get('REMOTE_ADDR')    ### Real IP address of client Machine
+    return ip
+
+# def get_ip_address(request):
+#     x_forwarded_for = request.headers('HTTP_X_FORWARDED_FOR')
+#     if x_forwarded_for:
+#         ipps = x_forwarded_for.split(',')
+#         ips = ipps[len(ipps) - 1]
+#     else:
+#         ips = request.META.get('REMOTE_ADDR')
+#     return ips
 
 
 
