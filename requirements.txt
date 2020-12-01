@@ -4,7 +4,6 @@ Django==3.1.4
 django-heroku==0.3.1
 django-decouple
 gunicorn==20.0.4
-pkg-resources
 psycopg2==2.8.6
 python-decouple==3.3
 pytz==2020.4
