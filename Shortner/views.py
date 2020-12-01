@@ -84,8 +84,8 @@ def home(request):
             email = input.cleaned_data['email']
             url = input.cleaned_data['input_url']
             shorten_urls = URL_Shortner().shorten_url(url)
-            set_UserData = User(Name = name, Email = email)
-            set_UserData.save()
+            set_UserData,created = User.objects.get_or_create(Name = name, Email = email)
+            # set_UserData.save()
             
             set_data = Input_URL(UserID= set_UserData, ip_addresss= ip_address ,input_url = url , shorten_url = shorten_urls, CreationDate = timezone.now(), ExpirationDate = timezone.now() + timezone.timedelta(days= 730) )
             set_data.save()
