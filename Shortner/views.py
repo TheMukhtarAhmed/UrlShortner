@@ -45,7 +45,7 @@ class URL_Shortner:
         result_str = ''.join((random.choice(letters_and_digits) for i in range(length)))
 
         try:
-            check_link = "localhost:8000/" + str(result_str)
+            check_link = "https://urlsh0rtner.herokuapp.com/" + str(result_str)
             try_get_link = Input_URL.objects.filter(shorten_url = check_link).first()
             if try_get_link is not None:
                 self.encode(6)
@@ -86,7 +86,7 @@ def home(request):
 
 def redirect_fun(request, link):
 
-    ready_link = "localhost:8000/" + str(link)
+    ready_link = "https://urlsh0rtner.herokuapp.com/" + str(link)
     
     try:
         get_link = Input_URL.objects.filter(shorten_url = ready_link).first()
