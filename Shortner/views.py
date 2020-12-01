@@ -2,7 +2,8 @@ from django.http.request import HttpRequest
 from django.http.response import Http404, HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from .forms import URL_Form
-from .models import Input_URL,User
+from .models import Input_URL
+from .models import User
 from django.utils import timezone
 from django.views.generic import CreateView
 from django import forms

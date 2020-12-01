@@ -17,9 +17,21 @@ from Shortner.views import redirect_fun
 from django.contrib import admin
 from django.urls import path
 from Shortner import views
+from django.conf.urls import url
+
 
 urlpatterns = [
+    # re_path(r'admin/', admin.site.urls),
+    # re_path(r'', views.home, name='home'),
+    # re_path(r'<str:link>', views.redirect_fun, name='redirect'),
+
     path('admin/', admin.site.urls),
     path('', views.home, name="home"),
-    path('<str:link>', views.redirect_fun, name="redirect")
+    path('<str:link>', views.redirect_fun, name="redirect"),
+
+    # url(r'^admin/', admin.site.urls),
+    # url(r'^', views.home, name="home"),
+    # path('<str:link>', views.redirect_fun, name="redirect"),
+
+    
 ]
