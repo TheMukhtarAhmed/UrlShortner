@@ -88,12 +88,12 @@ WSGI_APPLICATION = 'URLShortner.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'da8v5uhcpa6mrn',
         'HOST': 'ec2-52-203-165-126.compute-1.amazonaws.com',
         'PORT': 5432,
         'USER': 'jlggjtonvffank',
-        'PASSWORD': '87fa242fc0fcb53dcfd98fd5bdab2197bb6ec358bc32fc0d21add1f925bbd6d2'
+        'PASSWORD': '87fa242fc0fcb53dcfd98fd5bdab2197bb6ec358bc32fc0d21add1f925bbd6d2',
     }
 }
 
