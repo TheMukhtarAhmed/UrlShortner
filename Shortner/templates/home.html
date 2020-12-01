@@ -1,0 +1,54 @@
+{% extends 'layout.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+    
+    <!-- <div class="border-right-0 align-middle center"> -->
+        <!-- <h1 style="text-align: center; color: black;">URL Shortner</h1> -->
+
+        <div>
+            <form action="{% url 'home' %}" method='post'>
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-9">
+                      {{ form|crispy }}
+                    </div>
+                </div>
+
+                
+                <br>
+
+
+                <!-- Button trigger modal -->
+                <button type="submit" id="submit-button"  class="btn btn-danger btn-sm">Go</button>
+            </form>
+
+        <br>
+  </div>
+        <h4>Shorter Url of {{ input_url }} : </h4>
+        <!-- <input type="text" value="{{ short_url }}" id="myInput">
+        <div class="tooltip">
+        
+        <button onclick="copy_function()" onmouseout= "outFunc()">
+
+            <span class="tooltiptext" id="myTooltip">Copy to clipboard</span>
+            Copy text
+        </button>
+        </div> -->
+        <div class="row">
+            <div class="col-9">
+        <input class="form-control" type="text" value="{{ short_url }}" id="myInput" readonly>
+            </div>
+        </div>
+        <br>
+        <button onclick="copy_Function()" class="btn btn-danger btn-sm" onmouseout="outFunc()">
+            <span class="tooltiptext" id="myTooltip">Copy to clipboard</span>
+            </button>
+
+        
+
+             
+<script>
+
+</script>
+  </div>
+{% endblock content %}
