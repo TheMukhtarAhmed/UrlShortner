@@ -87,14 +87,22 @@ def home(request):
             set_UserData,created = User.objects.get_or_create(Name = name, Email = email)
             # set_UserData.save()
             
-            set_data = Input_URL(UserID= set_UserData, ip_addresss= ip_address ,input_url = url , shorten_url = shorten_urls, CreationDate = timezone.now(), ExpirationDate = timezone.now() + timezone.timedelta(days= 730) )
+            set_data = Input_URL(UserID= set_UserData, ip_addresss= ip_address ,input_url = url , shorten_url = shorten_urls, count = 0, CreationDate = timezone.now(), ExpirationDate = timezone.now() + timezone.timedelta(days= 730) )
             set_data.save()
-            
+            input = URL_Form()
 
-            new_input = URL_Form()
             return render(request, 'home.html', {
-                'form' : new_input, 'short_url' : shorten_urls, 'input_url' : url,
-            })
+            'form' : input, 'short_url' : shorten_urls, 'input_url' : url,
+        })
+
+        else:
+            url = None
+            note = "I think You've missed something"
+            
+        return render(request, 'home.html', {
+            'form' : input, 'input_url' : url,
+        })
+        
     else:
         form = URL_Form()
         return render(request, 'home.html',{
@@ -104,14 +112,19 @@ def home(request):
 def redirect_fun(request, link):
 
     ready_link = "https://urlsh0rtner.herokuapp.com/" + str(link)
-    
+    final_link = None
     try:
         get_link = Input_URL.objects.filter(shorten_url = ready_link).first()
-        final_link = get_link.input_url
-
+        if get_link is not None:
+            final_link = get_link.input_url
+            print(get_link.count)
+            get_link.count += 1
+            get_link.save()
+            return redirect(final_link)
         
     except Input_URL.DoesNotExist:
         raise Http404('Page not Found')
 
-    return redirect(final_link)
+    return HttpResponse(request, "Page not found")
+    
 

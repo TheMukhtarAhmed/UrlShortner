@@ -15,6 +15,7 @@ class Input_URL(models.Model):
     ip_addresss = models.GenericIPAddressField()
     input_url = models.URLField(blank=False)
     shorten_url = models.URLField(blank=False)
+    count = models.IntegerField(blank=False)
     CreationDate = models.DateField()
     ExpirationDate = models.DateField()
     
@@ -27,7 +28,7 @@ class Input_URL(models.Model):
 
 class User(models.Model):
     
-    Name = models.CharField(max_length=20, blank=False, null=False)
+    Name = models.CharField(max_length=20, blank=False, null=False )
     Email = models.EmailField(blank=False, null=False)
     
 

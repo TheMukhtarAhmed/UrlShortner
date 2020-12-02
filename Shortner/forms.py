@@ -7,8 +7,8 @@ from django.forms import widgets
 #     input_form = forms.URLField(label="Enter URL Here", required=True)
 
 class URL_Form(forms.ModelForm):
-    name = forms.CharField(max_length=50 ,label="Name: ", widget=forms.TextInput(attrs={"placeholder":"Enter Your Name Here! "}))
-    email = forms.EmailField(max_length=255, label="Email: ", widget=forms.TextInput(attrs={"placeholder":"Enter Your Email Here!"}))
+    name = forms.CharField(required=True,min_length=4,max_length=50 ,label="Name: ", widget=forms.TextInput(attrs={"placeholder":"Enter Your Name Here! "}))
+    email = forms.EmailField(required=True,min_length=10,max_length=255, label="Email: ", widget=forms.TextInput(attrs={"placeholder":"Enter Your Email Here!"}))
 
     class Meta:
         model = Input_URL
@@ -18,6 +18,7 @@ class URL_Form(forms.ModelForm):
             'input_url' : forms.TextInput(attrs={ 'id' : 'input', 'placeholder':'Enter the Greater URL Here!'}),
             
         }
+        
     
     
 
