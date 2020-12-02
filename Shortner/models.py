@@ -12,7 +12,7 @@ class Input_URL(models.Model):
     # UserID = models.IntegerField(primary_key=True, unique=True, null=False)
     
     UserID = models.ForeignKey('User', on_delete=CASCADE, related_name="UserID")
-    ip_addresss = models.GenericIPAddressField()
+    ip_addresss = models.GenericIPAddressField(blank=True, null=True, verbose_name=("remote address"))
     input_url = models.URLField(blank=False)
     shorten_url = models.URLField(blank=False)
     count = models.IntegerField(blank=False)
