@@ -90,11 +90,11 @@ WSGI_APPLICATION = 'URLShortner.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'db04udcpd27j76',
-        'HOST': 'ec2-34-195-115-225.compute-1.amazonaws.com',
+        'NAME': 'd3uanlu4ho1j8b',
+        'HOST': 'ec2-3-220-98-137.compute-1.amazonaws.com',
         'PORT': 5432,
-        'USER': 'pjmlgzdzimwspl',
-        'PASSWORD': 'f805ba9609ab670aa9fc452500a4785ab80d6bf2465ca625034843fcd8ef5e83',
+        'USER': 'wtnkfkwzhvpgvn',
+        'PASSWORD': '88fc10a4fb3377ef58ea0ff16de88dbd9d65ca7e17baa18da13f43bff04bc676',
     }
 }
 
