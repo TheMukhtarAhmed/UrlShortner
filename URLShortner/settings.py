@@ -87,23 +87,14 @@ WSGI_APPLICATION = 'URLShortner.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
+
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'd1fi5qqlbcs459',
-        'HOST': 'ec2-18-215-99-63.compute-1.amazonaws.com',
-        'PORT': 5432,
-        'USER': 'awrwhuwzksepqi',
-        'PASSWORD': 'c76b0f1b9d1f3ef9e64f25f14043e15fac7f949ca4d90f2b6508a9bdae6092ab',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
 
 
 
